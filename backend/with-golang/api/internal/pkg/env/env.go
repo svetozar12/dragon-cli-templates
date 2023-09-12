@@ -19,11 +19,7 @@ InitConfig initializes the configuration by parsing environment variables and st
 */
 func InitConfig() {
 	// Load environment variables from .env file
-	err := godotenv.Load("apps/api/.env")
-	if err != nil {
-		// Handle error if the .env file can't be loaded
-		panic(err)
-	}
+	godotenv.Load("apps/api/.env")
 
 	Envs = Config{
 		Port:                       getEnv("PORT", "3333"),
