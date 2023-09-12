@@ -1,11 +1,11 @@
 package config
 
 import (
-	"@dragon-cli-template/db"
-	"@dragon-cli-template/routes/content"
-	contentmodel "@dragon-cli-template/routes/contentModel"
-	"@dragon-cli-template/routes/field"
-	fieldtype "@dragon-cli-template/routes/fieldType"
+	"@dragon-cli-template/apps/api/db"
+	"@dragon-cli-template/apps/api/routes/content"
+	contentmodel "@dragon-cli-template/apps/api/routes/contentModel"
+	"@dragon-cli-template/apps/api/routes/field"
+	fieldtype "@dragon-cli-template/apps/api/routes/fieldType"
 )
 
 func Init() {

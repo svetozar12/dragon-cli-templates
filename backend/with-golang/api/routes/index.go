@@ -1,13 +1,13 @@
 package routes
 
 import (
-	"@dragon-cli-template/config"
-	content "@dragon-cli-template/routes/content"
-	contentmodel "@dragon-cli-template/routes/contentModel"
-	"@dragon-cli-template/routes/field"
-	fieldtype "@dragon-cli-template/routes/fieldType"
+	"@dragon-cli-template/apps/api/config"
+	content "@dragon-cli-template/apps/api/routes/content"
+	contentmodel "@dragon-cli-template/apps/api/routes/contentModel"
+	"@dragon-cli-template/apps/api/routes/field"
+	fieldtype "@dragon-cli-template/apps/api/routes/fieldType"
 
-	_ "@dragon-cli-template/docs"
+	_ "@dragon-cli-template/apps/api/docs"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/swagger"

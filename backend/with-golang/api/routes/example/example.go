@@ -1,8 +1,8 @@
 package content
 
 import (
-	"@dragon-cli-template/db"
-	"@dragon-cli-template/models"
+	"@dragon-cli-template/apps/api/db"
+	"@dragon-cli-template/apps/api/models"
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
