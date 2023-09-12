@@ -1,8 +1,9 @@
 package main
 
 import (
-	"@dragon-cli-template/apps/api/db"
-	"@dragon-cli-template/apps/api/routes"
+	db "@dragon-cli-template/apps/api/internal/database"
+	"@dragon-cli-template/apps/api/internal/pkg/env"
+	"@dragon-cli-template/apps/api/internal/routes"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -20,5 +21,5 @@ func main() {
 	db.Open()
 	routes.InitRoutes(app)
 
-	app.Listen(":4000")
+	app.Listen(":" + env.Envs.Port)
 }

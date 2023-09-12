@@ -7,11 +7,12 @@
     "swagger": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "swag init --parseDependency --parseInternal -g ./routes/index.go && go build .",
+        "command": "task build",
         "cwd": "apps/api"
       }
     },
     "build": {
+      "dependsOn": ["swagger"],
       "executor": "@nx-go/nx-go:build",
       "options": {
         "outputPath": "dist/apps/api",

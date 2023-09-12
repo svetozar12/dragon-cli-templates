@@ -1,0 +1,93 @@
+basePath: /
+definitions:
+  entities.Body:
+    properties:
+      message:
+        type: integer
+    required:
+      - message
+    type: object
+  entities.Example:
+    properties:
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: "#/definitions/gorm.DeletedAt"
+      id:
+        type: integer
+      message:
+        type: integer
+      updatedAt:
+        type: string
+    required:
+      - id
+      - message
+    type: object
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+host: localhost:3333
+info:
+  contact:
+    email: fiber@swagger.io
+    name: API Support
+  description: This is a sample swagger for Fiber
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Fiber Example API
+  version: "1.0"
+paths:
+  /v1/Example:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - default: 1
+          description: page
+          in: query
+          name: page
+          type: integer
+        - default: 10
+          description: limit
+          in: query
+          name: limit
+          type: integer
+        - description: userId
+          in: query
+          name: userId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/entities.Example"
+      summary: Get all Example
+      tags:
+        - Example
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: query params
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/entities.Body"
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: "#/definitions/entities.Example"
+      summary: Create Example
+      tags:
+        - Example
+swagger: "2.0"
