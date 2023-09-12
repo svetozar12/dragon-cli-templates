@@ -23,7 +23,7 @@
       "executor": "@nx-go/nx-go:serve",
       "options": {
         "cwd": ".",
-        "main": "apps/services/file-upload/main.go"
+        "main": "apps/api/main.go"
       }
     },
     "test": {
