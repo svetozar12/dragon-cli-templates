@@ -20,10 +20,10 @@
       }
     },
     "serve": {
-      "executor": "nx:run-commands",
+      "executor": "@nx-go/nx-go:serve",
       "options": {
-        "command": "air",
-        "cwd": "apps/api"
+        "cwd": ".",
+        "main": "apps/services/file-upload/main.go"
       }
     },
     "test": {
