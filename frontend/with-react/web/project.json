@@ -72,6 +72,22 @@
       "options": {
         "buildTarget": "web:build"
       }
+    },
+    "docker-build": {
+      "dependsOn": ["docker-build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["docker build -f apps/web/Dockerfile . -t web/react"],
+        "parallel": false
+      }
+    },
+    "docker-run": {
+      "dependsOn": ["docker-build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["docker run -p 3000:80 -d web/react"],
+        "parallel": false
+      }
     }
   },
   "tags": []
