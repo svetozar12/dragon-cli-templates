@@ -57,6 +57,22 @@
           "codeCoverage": true
         }
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["docker build -f apps/api/Dockerfile . -t api/nodejs"],
+        "parallel": false
+      }
+    },
+    "docker-run": {
+      "dependsOn": ["docker-build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["docker run -p 3333:3333 -d api/nodejs"],
+        "parallel": false
+      }
     }
   },
   "tags": []
