@@ -15,7 +15,7 @@
       "dependsOn": ["swagger"],
       "executor": "@nx-go/nx-go:build",
       "options": {
-        "outputPath": "dist/apps/api",
+        "outputPath": "dist/apps/api/api",
         "main": "apps/api/main.go"
       }
     },
@@ -31,6 +31,24 @@
     },
     "lint": {
       "executor": "@nx-go/nx-go:lint"
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "docker build -f apps/api/build/Dockerfile . -t api/golang"
+        ],
+        "parallel": false
+      }
+    },
+    "docker-run": {
+      "dependsOn": ["docker-build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["docker run -p 3333:3333 -d api/golang"],
+        "parallel": false
+      }
     }
   },
   "tags": []

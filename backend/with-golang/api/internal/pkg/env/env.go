@@ -23,7 +23,7 @@ func InitConfig() {
 
 	Envs = Config{
 		Port:                       getEnv("PORT", "3333"),
-		POSTGRES_CONNECTION_STRING: getEnv("POSTGRES_CONNECTION_STRING", "postgres://postgres:postgrespw@localhost:5432"),
+		POSTGRES_CONNECTION_STRING: getEnv("POSTGRES_CONNECTION_STRING", "postgres://postgres:postgrespw@172.17.0.1:5432"),
 	}
 
 	fmt.Println("Envs were successfully loaded!")
