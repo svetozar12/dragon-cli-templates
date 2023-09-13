@@ -62,6 +62,22 @@
       "options": {
         "lintFilePatterns": ["apps/web/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["docker build -f apps/web/Dockerfile . -t web/nextjs"],
+        "parallel": false
+      }
+    },
+    "docker-run": {
+      "dependsOn": ["docker-build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["docker run -p 3000:3000 -d web/nextjs"],
+        "parallel": false
+      }
     }
   },
   "tags": []
